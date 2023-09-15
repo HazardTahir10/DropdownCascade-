@@ -11177,19 +11177,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP WEBBOOK\\.nuget\\packages\\": {}
+    "C:\\Users\\HP WEBBOOK\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test\\cascadedropdown\\cascadedropdown\\cascadedropdown.csproj",
+      "projectUniqueName": "D:\\Old Files\\DropdownCascade-\\cascadedropdown\\cascadedropdown.csproj",
       "projectName": "cascadedropdown",
-      "projectPath": "D:\\Test\\cascadedropdown\\cascadedropdown\\cascadedropdown.csproj",
+      "projectPath": "D:\\Old Files\\DropdownCascade-\\cascadedropdown\\cascadedropdown.csproj",
       "packagesPath": "C:\\Users\\HP WEBBOOK\\.nuget\\packages\\",
-      "outputPath": "D:\\Test\\cascadedropdown\\cascadedropdown\\obj\\",
+      "outputPath": "D:\\Old Files\\DropdownCascade-\\cascadedropdown\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\HP WEBBOOK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

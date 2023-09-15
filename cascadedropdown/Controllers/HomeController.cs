@@ -118,5 +118,81 @@ namespace cascadedropdown.Controllers
             List<SelectListItem> cities = GetCities(countryId);
             return Json(cities);
         }
+
+
+    
+        private Customer GetCustomer(int Id)
+        {
+            Customer customer = _context.Customers
+                .Where(c => c.Id == Id).FirstOrDefault();
+            return customer;
+        }
+
+        [HttpGet]
+        public IActionResult Details(int Id)
+        {
+            Customer customer = GetCustomer(Id);
+            ViewBag.CountryName = GetCountryName(customer.CountryId);
+            ViewBag.CityName = GetCityName(customer.CityId);
+            return View(customer);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            Customer customer = GetCustomer(Id);
+            ViewBag.CountryName = GetCountryName(customer.CountryId);
+            ViewBag.CityName = GetCityName(customer.CityId);
+            return View(customer);
+        }
+
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Delete(Customer customer)
+        {
+            _context.Attach(customer);
+            _context.Entry(customer).State = EntityState.Deleted;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(List));
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            Customer customer = GetCustomer(Id);
+            ViewBag.CountryId = GetCountries();
+            ViewBag.CityId = GetCities(customer.CountryId);
+            return View(customer);
+        }
+
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Edit(Customer customer)
+        {
+            _context.Attach(customer);
+            _context.Entry(customer).State = EntityState.Modified;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(List));
+        }
+
+        private string GetCountryName(int CountryId)
+        {
+            string countryName = _context.Countries.Where(ct => ct.Id == CountryId).SingleOrDefault().CountryName;
+            return countryName;
+        }
+
+        private string GetCityName(int CityId)
+        {
+            string cityName = _context.Cities.Where(ct => ct.Id == CityId).SingleOrDefault().CityName;
+            return cityName;
+        }
+
+
+
+
+
+
     }
 }
